@@ -14,8 +14,13 @@ public class CommentApp {
 
         Comment comment  = new Comment("Johnson","Spring Framework");
 
-        CommentService commentService = container.getBean(CommentService.class);
-        commentService.publishComment(comment);
+
+        CommentService cs1 = container.getBean(CommentService.class);
+        CommentService cs2 = container.getBean(CommentService.class);
+
+        System.out.println(cs1);
+        System.out.println(cs2);
+        System.out.println(cs1==cs2);
 
     }
 

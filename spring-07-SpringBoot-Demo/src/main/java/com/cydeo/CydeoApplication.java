@@ -11,13 +11,15 @@ public class CydeoApplication {
 
     public static void main(String[] args) {
 
-        Comment comment  = new Comment("Emre1","Spring Framework");
+        Comment comment  = new Comment("Johnson","Spring Framework");
 
         ApplicationContext container = SpringApplication.run(CydeoApplication.class, args);
 
         CommentService commentService = container.getBean(CommentService.class);
         commentService.publishComment(comment);
 
+        commentService.printConfigData();
+        commentService.printDbConfigData();
 
     }
 
