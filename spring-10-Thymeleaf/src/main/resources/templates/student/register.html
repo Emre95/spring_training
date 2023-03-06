@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link  th:href="@{/css/bootstrap-4.1.3-dist/css/._bootstrap-grid.css}" rel="stylesheet">
+
+    <link th:href="@{/css/._custom.css}" rel="stylesheet">
+
+</head>
+<body>
+
+<h1 class="display-1 text-danger">Welcome to Cydeo Student's Register Form</h1>
+<h2 class="cydeo">My Custom CSS</h2>
+<img th:src="@{/images/welcome-38249.png}">
+
+<h2 th:text="${students.get(0).getFirstName()}"></h2>
+<h2 th:text="${students.get(0).getLastName()}"></h2>
+<h2 th:text="${'Hello' + students.get(0).getLastName()}"></h2>
+<h2 th:text="${students.get(0).getFirstName() + ' ' + students.get(0).getLastName()}"></h2>
+
+<h2>
+    <a th:href="@{https://cydeo.com}">Cydeo Page</a>
+</h2>
+<h2>
+    <a th:href="@{/student/welcome}">Welcome</a>
+</h2>
+<h2>
+    <a th:href="@{/student/welcome(id=3)}">Link1</a>
+</h2>
+<h2>
+    <a th:href="@{/student/welcome(name=${students.get(0).firstName})}">Link2</a>
+</h2>
+
+<table>
+    <thead>
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Age</td>
+        <td>State</td>
+    </tr>
+
+    </thead>
+
+    <tbody>
+    <tr th:each="student : ${students}">
+        <td   th:text="${student.firstName}"></td>
+        <td   th:text="${student.lastName}"></td>
+        <td   th:text="${student.age}"></td>
+        <td   th:text="${student.state}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
